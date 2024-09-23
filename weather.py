@@ -2,6 +2,8 @@
 import requests
 import json
 import os
+import platform
+
 
 city=input("Enter name of City\n")
 
@@ -13,8 +15,12 @@ d=json.loads(r.text)
 print(f"Temperatur of {city} in Celcious {d["current"]["temp_c"]}")
 print(f"Temperatur of {city} in Fahrenheit {d["current"]["temp_f"]}")
 
-text1=f"say Temperature of {city} in Celcious is {d["current"]["temp_c"]}"
-text2=f"say Temperature of {city} in Fahrenhite is {d["current"]["temp_f"]}"
+os69= platform.system()
 
-os.system(text1)
-os.system(text2)
+if os69=="Darwin":
+	text1=f"say Temperature of {city} in Celcious is {d["current"]["temp_c"]}"
+	text2=f"say Temperature of {city} in Fahrenhite is {d["current"]["temp_f"]}"
+	os.system(text1)
+	os.system(text2)
+else:
+	print()
